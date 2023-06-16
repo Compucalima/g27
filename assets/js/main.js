@@ -241,9 +241,22 @@ function modalHTML() {
     for( let element of modalDetails ) {
         detailsHTML =
          `
-            <div></div>
-            <img src="${element.image}">
-            <h2>${element.description}</h2>
+            <div class="modal__container">
+                <img src="${element.image}" alt="producto: ${element.name}" class="modal__img">
+                <div class="modal__container__details">
+                    <div class="modal__title"> 
+                        <h3 class="modal__product">${element.name}</h3> 
+                    </div>
+                    <p class="modal__description">${element.description}</p>
+                    <div class="modal__container__price">
+                        <p class="modal__price">${element.price}</p>
+                    </div>
+                    
+                </div>
+
+            </div>
+            
+            
         `
     }
     modalElement.innerHTML = detailsHTML
