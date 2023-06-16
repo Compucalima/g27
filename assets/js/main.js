@@ -19,13 +19,10 @@ let carProducts = [];
 const modalContainer = document.querySelector("#modal-container");
 const modalElement = document.querySelector("#modal-element");
 let modalDetails =[];
-
 navToggle.addEventListener("click", () => {
     navCar.classList.toggle("nav__car--visible")
 });
-
 eventListenersLoader();
-
 function eventListenersLoader(){
     //* Cuando se precione el boton "add to Car"
     productsList.addEventListener("click", addProduct)
@@ -44,9 +41,7 @@ function eventListenersLoader(){
         carProducts = JSON.parse(localStorage.getItem("car")) || []
         carElementsHTML()
     })
-
 }
-
 //* Hacer peticion a la API de productos
 //* 1- Crear una funcion con la petición
 function getProducts(){
@@ -61,18 +56,15 @@ function getProducts(){
 }
 getProducts()
 //* 2- Renderizar los productos capturados de la API en mi HTML.
-
 function printProducts(products){
     let html = "";
     let htmlP = "";
     let lastRND = products.length
     let firstRND = 1
-
     function promotionProduct(min, max) {
         return Math.random() * (max - min) + min;
     }
     let promoDay = promotionProduct(firstRND,lastRND)
-
     for(let product of products){
         if(product.id == Math.round(promoDay)){ 
             htmlP += 
@@ -127,20 +119,16 @@ function addProduct(event){
         carProductsElements(product)
     }
 }
-
 //* 2. Debemos transformar la información HTML a un array de objetos.
 //* 2.1 Debo validar si el elemento seleccionado ya se encuentra dentro del array del carrito (carProducts). Si existe, le debo sumar una unidad para que no se repita.
 function carProductsElements(product){
-
     const infoProduct = {
         id: product.querySelector('button').getAttribute('data-id'),
         image: product.querySelector('img').src,
         name: product.querySelector('p').textContent,
         price: product.querySelector('.products__div .products__price').textContent,
         quantity: 1
-        // textContent nos permite pedir el texto que contiene un elemento.
     }
-    
     //* Agregar el objeto de infoProduct al array de carProducts, pero hay que validar si el elemento existe o no.
     //? El primer if valída si por lo menos un elemento que se encuentre en carProducts es igual al que quiero enviarle en infoProduct.
     if( carProducts.some( product => product.id === infoProduct.id ) ){ //True or False
@@ -156,12 +144,10 @@ function carProductsElements(product){
     } else {
         carProducts = [ ...carProducts, infoProduct ]
     }
-    
     carElementsHTML();
 }
 //? Aquí estan todos los productos del carrito
 function carElementsHTML() {
-
     let carHTML = '';
     for (let product of carProducts){
         carHTML += 
@@ -213,14 +199,12 @@ function modalProduct(event) {
         modalDetailsElement(product)
     }
 }
-
 //* 2. Crear función que escuche el botón de cierre.
 function closeModal(event) {
     if(event.target.classList.contains("modal__icon")){
         modalContainer.classList.remove("show__modal")
     }
 }
-
 //* 3. Crear función que convierta la info HTML en objeto.
 function modalDetailsElement(product) {
     const infoDatails = {
@@ -233,10 +217,8 @@ function modalDetailsElement(product) {
     modalDetails = [ ...modalDetails, infoDatails ]
     modalHTML()
 }
-
 //* 4. Dibujar producto dentro del modal.
 function modalHTML() {
-
     let detailsHTML = ""
     for( let element of modalDetails ) {
         detailsHTML =
@@ -255,30 +237,20 @@ function modalHTML() {
                 </div>
 
             </div>
-            
-            
         `
     }
     modalElement.innerHTML = detailsHTML
 }
-
 //* local storage: 
 //* Es una base de datos del navegador que nos permite almacenar información para hacerla recurrente dentro de nuestra página.
-
 //? Guardando un valor en el local storage => setItem("key","value").
 // localStorage.setItem("name", "alejandro")
-
 //? Obtener info desde LocalStorage => getItem
-
 // localStorage.getItem("name")
 // console.log(localStorage.getItem("name"));
-
 // const user = {name: 'José', lastName: 'Barreto'}
-
 //? Convertir el objeto user en un JSON
 // localStorage.setItem("user", JSON.stringify(user))
-
 //? Obtener la información y convertirla de JSON a Javascript
 // const userLocal = JSON.parse(localStorage.getItem("user"))
 // console.log(userLocal);
-
