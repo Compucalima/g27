@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito G27</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <img src="./assets/img/logo_nombre.png" alt="Logo Academlo" class="nav__img">
+        <button class="nav__button nav__button--toggle">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+        </button>
+        <section class="nav__car" id="car">
+            <div class="nav__car__div">
+                <h3 class="nav__car__title">Carrito de compras</h3>
+            </div>
+            <div id="car__list">
+
+            </div>
+            <div class="button__delete__all">
+                <button class="empty__button" id="empty-car">Empty car</button>
+            </div>
+        </section>
+    </nav>
+    <header class="header">
+        <img src="./assets/img/logo blanco.png" alt="logo hero" class="header__img">
+        <div class="header__div">
+            <h1 class="header__h1">Academlo Store</h1>
+            <p class="header__p">The mark of excellence.</p>
+        </div>
+    </header>
+    <main class="main">
+        <section class="section">
+            <div class="main__promotion">
+                <div id="product-promotion" class="main__div__promotion">
+            
+                </div>
+            </div>
+        </section>
+        <h3 class="main__h3">Todos nuestros productos</h3>
+        <section id="products-container" class="main__products products">
+        
+        </section>
+        <!-- Modal -->
+        <section class="modal" id="modal-container">
+          <div class="close">
+            <i class="fa-solid fa-xmark modal__icon"></i>
+          </div>  
+          <div id="modal-element" class="modal__view">
+
+          </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__div">
+            <img src="./assets/img/logo blanco.png" alt="Academlo logo" class="footer__logo">
+            <p class="footer__p">Copyright: Academlo Store</p>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/469667323c.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
