@@ -444,15 +444,20 @@ hr {
 
 .footer__div {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
     background-color: var(--red);
     justify-content: center;
     align-items: center;
+    color: var(--white);
 }
 .footer__logo {
     width: 100px;
 }
 .footer__p {
     color: var(--white);
+    font-size: 20px;
 }
 
 /*? Aquí inicia la parte responsive 1023px  */
@@ -635,9 +640,17 @@ hr {
     .modal__price {
         font-size: 35px;
     }
+    .footer__div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 20px;
+    }
+
 }
 /*? Aquí inicia la parte responsive 479px  */
 @media (max-width:479px){
+
     .promotion__element {
         display: flex;
         flex-direction: column;
@@ -677,6 +690,7 @@ hr {
         margin-left: 50px;
         margin-right: 50px;
     }
+
 
 }
 @-webkit-keyframes pulse{
